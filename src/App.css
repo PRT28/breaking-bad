@@ -1,0 +1,74 @@
+
+
+.App {
+  text-align: center;
+}
+h1{
+  font-size: 40px;
+  text-shadow: 2px 2px rgba(0,0,0,0.5);
+}
+
+.container{
+  background-color: #F05454;
+  color: #F5F5F5;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 77%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border-radius: 7px;
+  padding-top: 30px;
+  overflow-y: scroll;
+  padding-left: 100px;
+}
+
+.card{
+  background: #252525;
+  border-radius: 5px;
+  box-shadow: 0 0px 10px 0 rgb(53, 52, 52);
+  padding: 20px;
+  margin: 16px;
+  float: left;
+  color: #F5F5F5;
+  width: 226px;
+}
+
+.card h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+  text-shadow: 0;
+}
+
+.card button{
+  background-color: rgb(16, 140, 212);
+  color: rgb(43, 40, 40);
+  border-radius: 3px;
+  border: none;
+}
+
+.card button:hover{
+  background-color: rgb(219, 34, 9);
+  color: white;
+  border-radius: 3px;
+  border: none;
+}
+
+.card img{
+  width: 170px;
+  height: 250px;
+}
+
+.info{
+  background-color:#30475E;
+  color: #F5F5F5;
+  text-align: center;
+  overflow: scroll;
+  padding: 30px;
+  height:100vh;
+
+}
+
+.info img{
+  width: 170px;
+  height: 250px;
+}
