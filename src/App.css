@@ -14,7 +14,7 @@ h1{
   width: 100%;
   position: fixed;
   bottom: 0;
-  height: 77%;
+  height: 70%;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   border-radius: 7px;
   padding-top: 30px;
@@ -71,4 +71,10 @@ h1{
 .info img{
   width: 170px;
   height: 250px;
+}
+
+.loader{
+  position: absolute;
+  top:50%;
+  left: 50%;
 }

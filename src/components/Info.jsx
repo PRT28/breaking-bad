@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from "axios";
+import Loader from "react-loader-spinner";
 
 
 
@@ -44,7 +45,15 @@ function Info(props){
         }
         else{
             return(
-                <div className="info"></div>
+                <div className="loader">
+                    <Loader
+                    type="Puff"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                    timeout={3000} 
+                    />
+                </div>
             )
         }
 }
