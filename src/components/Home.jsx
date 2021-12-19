@@ -50,6 +50,7 @@ function Home(){
                 &emsp;
                 {off<60?<button onClick={()=>offNext()}>Next</button>:<p></p>}
                 <div className="container">
+                    <div className="inner">
                     {
                     data.map((d,index)=>
                         <Card
@@ -60,6 +61,7 @@ function Home(){
                         />
                     )
                     }
+                    </div>
                 </div>
             </div>
       );
