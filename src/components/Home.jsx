@@ -2,12 +2,22 @@ import React,{useEffect,useState} from 'react';
 import Loader from "react-loader-spinner";
 import Card from "./Card.jsx";
 import axios from "axios";
+import { initializeApp } from "firebase/app";
+import { getAnalytics, logEvent } from "firebase/analytics";
+import {firebaseConfig} from '../firebaseConfig';
+
+
 
 function Home(){
 
     const [data,setData]=useState([]);
     const [off,setOff]=useState(0);
     const [load,setLoad]=useState(true);
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    logEvent(analytics,"homepage_visited", {
+        index: 1
+    });
 
     useEffect(()=> {
         async function getData(){
@@ -37,14 +47,25 @@ function Home(){
 
     if(load){
         return (
-            <div className="loader">
-                <Loader
+            <div className="App">
+                <h1>The Breaking Bad</h1>
+                <p>List of all the characters in breaking bad</p>
+                {off>0?<button onClick={()=>offPrev()}>Prev</button>:<p></p>}
+                &emsp;
+                {off<60?<button onClick={()=>offNext()}>Next</button>:<p></p>}
+                <br /><br />
+                <label>Search:</label><input id="t" type="text" onInput={(e)=>changeData(e)}></input>
+                <div className="container">
+                    <div className="inner">
+                    <Loader
                 type="Puff"
                 color="#00BFFF"
                 height={100}
                 width={100}
                 timeout={3000} 
                 />
+                    </div>
+                </div>
             </div>
           );
     }else{
