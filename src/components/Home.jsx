@@ -29,6 +29,12 @@ function Home(){
         console.log(off)
     }
 
+    async function changeData(e){
+        const text=e.target.value;
+        const res = await axios.get("https://www.breakingbadapi.com/api/characters?name="+text);
+        setData(res.data);
+    }
+
     if(load){
         return (
             <div className="loader">
@@ -49,6 +55,8 @@ function Home(){
                 {off>0?<button onClick={()=>offPrev()}>Prev</button>:<p></p>}
                 &emsp;
                 {off<60?<button onClick={()=>offNext()}>Next</button>:<p></p>}
+                <br /><br />
+                <label>Search:</label><input id="t" type="text" onInput={(e)=>changeData(e)}></input>
                 <div className="container">
                     <div className="inner">
                     {
