@@ -2,8 +2,8 @@ import React,{useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from "axios";
 import Loader from "react-loader-spinner";
-
-
+import { logEvent } from "firebase/analytics";
+import {analytics} from '../firebaseConfig';
 
 
 function Info(props){
@@ -18,6 +18,10 @@ function Info(props){
             try{
                 const res = await axios.get("https://www.breakingbadapi.com/api/characters/"+id);
                 setData(res.data[0]);
+                logEvent(analytics,"character_viewed",{
+                    id:data.char_id,
+                    name:data.name
+                })
                 console.log(data);
             } catch(e){
                 console.log(e)

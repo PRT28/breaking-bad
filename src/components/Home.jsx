@@ -2,9 +2,8 @@ import React,{useEffect,useState} from 'react';
 import Loader from "react-loader-spinner";
 import Card from "./Card.jsx";
 import axios from "axios";
-import { initializeApp } from "firebase/app";
-import { getAnalytics, logEvent } from "firebase/analytics";
-import {firebaseConfig} from '../firebaseConfig';
+import { logEvent } from "firebase/analytics";
+import {analytics} from '../firebaseConfig';
 
 
 
@@ -13,8 +12,6 @@ function Home(){
     const [data,setData]=useState([]);
     const [off,setOff]=useState(0);
     const [load,setLoad]=useState(true);
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
     logEvent(analytics,"homepage_visited", {
         index: 1
     });
@@ -41,8 +38,17 @@ function Home(){
 
     async function changeData(e){
         const text=e.target.value;
-        const res = await axios.get("https://www.breakingbadapi.com/api/characters?name="+text);
-        setData(res.data);
+        if(text.length>=3){
+            logEvent(analytics,"search",{
+                value:text
+            });
+            const res = await axios.get("https://www.breakingbadapi.com/api/characters?name="+text);
+            setData(res.data);
+        }
+        if(text===""){
+            const res = await axios.get("https://www.breakingbadapi.com/api/characters?limit=10&offset="+off);
+            setData(res.data);
+        }
     }
 
     if(load){
