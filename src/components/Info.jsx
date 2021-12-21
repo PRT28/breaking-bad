@@ -19,8 +19,8 @@ function Info(props){
                 const res = await axios.get("https://www.breakingbadapi.com/api/characters/"+id);
                 setData(res.data[0]);
                 logEvent(analytics,"character_viewed",{
-                    id:data.char_id,
-                    name:data.name
+                    char_id:data.char_id,
+                    char_name:data.name
                 })
                 console.log(data);
             } catch(e){
