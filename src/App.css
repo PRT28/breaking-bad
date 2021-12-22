@@ -84,20 +84,43 @@ a:link{
 }
   
 .info{
-  background-color:#30475E;
+  background-color:#171f27d3;
   color: #F5F5F5;
   text-align: center;
   overflow: scroll;
   padding: 30px;
   height:100vh;
-
 }
 
 .info img{
-  width: 170px;
-  height: 250px;
+  width: 250px;
+  height: 330px;
+  margin-top: 30px;
 }
 
+.info-container{
+  background-color: #1c251a;
+  margin-top: 10%;
+  border-radius: 20px;
+  display: inline-flex;
+}
+
+.info-container:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 40%;
+  padding: 10px;
+}
+.column1{
+  float: left;
+  width:70%;
+  padding: 10px;
+}
 .loader{
   position: absolute;
   top:50%;
